@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div style="overflow-y: scroll;height: 500px;" >
+  <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <ng-container matColumnDef="IntAxleNo">
+      <mat-header-cell *matHeaderCellDef> Axel No </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.IntAxleNo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="IntCoachPosition">
+      <mat-header-cell *matHeaderCellDef> Coach Position </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.IntCoachPosition}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="DecTs1">
+      <mat-header-cell *matHeaderCellDef> MP side Axle Temp </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.DecTs1}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="DecTs2">
+      <mat-header-cell *matHeaderCellDef> AP side Axle Temp </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.DecTs2}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</div>
+
+
