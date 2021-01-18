@@ -9,7 +9,12 @@
 
     <ng-container matColumnDef="IntCoachPosition">
       <mat-header-cell *matHeaderCellDef> Coach Position </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.IntCoachPosition}} </mat-cell>
+      <mat-cell *matCellDef="let element">
+        <div *ngIf="isShowPosition">
+          {{element.IntCoachPosition}}
+        </div>
+         </mat-cell>
+
     </ng-container>
 
     <ng-container matColumnDef="DecTs1">
@@ -22,8 +27,9 @@
       <mat-cell *matCellDef="let element"> {{element.DecTs2}} </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="tableHeader"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'rowCoachPosition': checkPosition(row.IntCoachPosition)}"
+    ></mat-row>
 
   </mat-table>
 </div>
